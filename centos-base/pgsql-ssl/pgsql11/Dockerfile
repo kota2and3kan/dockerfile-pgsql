@@ -2,11 +2,11 @@ FROM centos:7.6.1810 AS builder-pgsql-ssl
 RUN yum install -y make gcc readline-devel zlib-devel openssl-devel > /dev/null \
  && useradd postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v11.2/postgresql-11.2.tar.gz > /dev/null \
- && tar xzf postgresql-11.2.tar.gz \
- && chown -R postgres. postgresql-11.2/ \
- && su - postgres -c "cd /usr/local/src/postgresql-11.2/ && ./configure --with-openssl && make" > /dev/null \
- && cd /usr/local/src/postgresql-11.2/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v11.3/postgresql-11.3.tar.gz > /dev/null \
+ && tar xzf postgresql-11.3.tar.gz \
+ && chown -R postgres. postgresql-11.3/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-11.3/ && ./configure --with-openssl && make" > /dev/null \
+ && cd /usr/local/src/postgresql-11.3/ \
  && make install > /dev/null  
 
 FROM centos:7.6.1810
