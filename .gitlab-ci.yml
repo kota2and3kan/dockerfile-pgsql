@@ -17,131 +17,53 @@ stages:
 build-centos-pgsql-minimal:
   stage: centos-pgsql-minimal
   script:
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v90" ./centos-base/pgsql-minimal/pgsql90
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v90"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v91" ./centos-base/pgsql-minimal/pgsql91
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v91"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v92" ./centos-base/pgsql-minimal/pgsql92
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v92"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v93" ./centos-base/pgsql-minimal/pgsql93
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v93"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v94" ./centos-base/pgsql-minimal/pgsql94
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v94"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v95" ./centos-base/pgsql-minimal/pgsql95
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v95"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v96" ./centos-base/pgsql-minimal/pgsql96
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v96"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v10" ./centos-base/pgsql-minimal/pgsql10
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v10"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v11" ./centos-base/pgsql-minimal/pgsql11
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v11"
+    - for i in 90 91 92 93 94 95 96 10 11
+    - do
+    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v${i}" ./centos-base/pgsql-minimal/pgsql${i}
+    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v${i}"
+    - done
 
 build-centos-pgsql-ssl:
   stage: centos-pgsql-ssl
   script:
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v90" ./centos-base/pgsql-ssl/pgsql90
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v90"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v91" ./centos-base/pgsql-ssl/pgsql91
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v91"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v92" ./centos-base/pgsql-ssl/pgsql92
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v92"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v93" ./centos-base/pgsql-ssl/pgsql93
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v93"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v94" ./centos-base/pgsql-ssl/pgsql94
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v94"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v95" ./centos-base/pgsql-ssl/pgsql95
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v95"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v96" ./centos-base/pgsql-ssl/pgsql96
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v96"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v10" ./centos-base/pgsql-ssl/pgsql10
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v10"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v11" ./centos-base/pgsql-ssl/pgsql11
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v11"
+    - for i in 90 91 92 93 94 95 96 10 11
+    - do
+    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v${i}" ./centos-base/pgsql-ssl/pgsql${i}
+    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v${i}"
+    - done
 
 build-centos-pgsql-contribs:
   stage: centos-pgsql-contribs
   script:
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v90" ./centos-base/pgsql-contribs/pgsql90
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v90"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v91" ./centos-base/pgsql-contribs/pgsql91
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v91"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v92" ./centos-base/pgsql-contribs/pgsql92
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v92"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v93" ./centos-base/pgsql-contribs/pgsql93
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v93"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v94" ./centos-base/pgsql-contribs/pgsql94
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v94"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v95" ./centos-base/pgsql-contribs/pgsql95
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v95"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v96" ./centos-base/pgsql-contribs/pgsql96
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v96"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v10" ./centos-base/pgsql-contribs/pgsql10
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v10"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v11" ./centos-base/pgsql-contribs/pgsql11
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v11"
+    - for i in 90 91 92 93 94 95 96 10 11
+    - do
+    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v${i}" ./centos-base/pgsql-contribs/pgsql${i}
+    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v${i}"
+    - done
 
 build-ubuntu-pgsql-minimal:
   stage: ubuntu-pgsql-minimal
   script:
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v90" ./ubuntu-base/pgsql-minimal/pgsql90
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v90"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v91" ./ubuntu-base/pgsql-minimal/pgsql91
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v91"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v92" ./ubuntu-base/pgsql-minimal/pgsql92
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v92"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v93" ./ubuntu-base/pgsql-minimal/pgsql93
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v93"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v94" ./ubuntu-base/pgsql-minimal/pgsql94
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v94"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v95" ./ubuntu-base/pgsql-minimal/pgsql95
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v95"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v96" ./ubuntu-base/pgsql-minimal/pgsql96
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v96"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v10" ./ubuntu-base/pgsql-minimal/pgsql10
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v10"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v11" ./ubuntu-base/pgsql-minimal/pgsql11
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v11"
+    - for i in 90 91 92 93 94 95 96 10 11
+    - do
+    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v${i}" ./ubuntu-base/pgsql-minimal/pgsql${i}
+    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v${i}"
+    - done
 
 build-ubuntu-pgsql-ssld:
   stage: ubuntu-pgsql-ssl
   script:
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v90" ./ubuntu-base/pgsql-ssl/pgsql90
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v90"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v91" ./ubuntu-base/pgsql-ssl/pgsql91
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v91"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v92" ./ubuntu-base/pgsql-ssl/pgsql92
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v92"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v93" ./ubuntu-base/pgsql-ssl/pgsql93
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v93"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v94" ./ubuntu-base/pgsql-ssl/pgsql94
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v94"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v95" ./ubuntu-base/pgsql-ssl/pgsql95
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v95"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v96" ./ubuntu-base/pgsql-ssl/pgsql96
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v96"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v10" ./ubuntu-base/pgsql-ssl/pgsql10
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v10"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v11" ./ubuntu-base/pgsql-ssl/pgsql11
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v11"
+    - for i in 90 91 92 93 94 95 96 10 11
+    - do
+    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v${i}" ./ubuntu-base/pgsql-ssl/pgsql${i}
+    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v${i}"
+    - done
 
 build-ubuntu-pgsql-contribs:
   stage: ubuntu-pgsql-contribs
   script:
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v90" ./ubuntu-base/pgsql-contribs/pgsql90
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v90"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v91" ./ubuntu-base/pgsql-contribs/pgsql91
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v91"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v92" ./ubuntu-base/pgsql-contribs/pgsql92
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v92"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v93" ./ubuntu-base/pgsql-contribs/pgsql93
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v93"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v94" ./ubuntu-base/pgsql-contribs/pgsql94
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v94"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v95" ./ubuntu-base/pgsql-contribs/pgsql95
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v95"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v96" ./ubuntu-base/pgsql-contribs/pgsql96
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v96"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v10" ./ubuntu-base/pgsql-contribs/pgsql10
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v10"
-    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v11" ./ubuntu-base/pgsql-contribs/pgsql11
-    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v11"
+    - for i in 90 91 92 93 94 95 96 10 11
+    - do
+    - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v${i}" ./ubuntu-base/pgsql-contribs/pgsql${i}
+    - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v${i}"
+    - done
