@@ -21,6 +21,8 @@ build-centos-pgsql-minimal:
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v${i}" ./centos-base/pgsql-minimal/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v${i}"
     - done
+  only:
+    - web
 
 build-centos-pgsql-ssl:
   stage: centos-pgsql-ssl
@@ -29,6 +31,8 @@ build-centos-pgsql-ssl:
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v${i}" ./centos-base/pgsql-ssl/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v${i}"
     - done
+  only:
+    - web
 
 build-centos-pgsql-contribs:
   stage: centos-pgsql-contribs
@@ -37,6 +41,8 @@ build-centos-pgsql-contribs:
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v${i}" ./centos-base/pgsql-contribs/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v${i}"
     - done
+  only:
+    - web
 
 build-ubuntu-pgsql-minimal:
   stage: ubuntu-pgsql-minimal
@@ -45,6 +51,8 @@ build-ubuntu-pgsql-minimal:
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v${i}" ./ubuntu-base/pgsql-minimal/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v${i}"
     - done
+  only:
+    - web
 
 build-ubuntu-pgsql-ssld:
   stage: ubuntu-pgsql-ssl
@@ -53,6 +61,8 @@ build-ubuntu-pgsql-ssld:
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v${i}" ./ubuntu-base/pgsql-ssl/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v${i}"
     - done
+  only:
+    - web
 
 build-ubuntu-pgsql-contribs:
   stage: ubuntu-pgsql-contribs
@@ -61,3 +71,5 @@ build-ubuntu-pgsql-contribs:
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v${i}" ./ubuntu-base/pgsql-contribs/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v${i}"
     - done
+  only:
+    - web
