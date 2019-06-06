@@ -46,13 +46,13 @@ $ git clone https://github.com/kota2and3kan/dockerfile-pgsql.git
 
 Run the script in the directory that you want to use.
 ```
-$ cd ubuntu-base/pgsql-contribs
+$ cd dockerfile-pgsql/ubuntu-base/pgsql-contribs
 $ sudo ./build-pgsql-contribs.sh
 ```
 
 Or build by `docker build`.
 ```
-$ cd ubuntu-base/pgsql-contribs
+$ cd dockerfile-pgsql/ubuntu-base/pgsql-contribs
 $ sudo docker build -f pgsql11/Dockerfile -t <image-name>:<tag-name> ./pgsql11
 ```
 
