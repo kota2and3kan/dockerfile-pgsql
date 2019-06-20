@@ -17,7 +17,7 @@ stages:
 build-centos-pgsql-minimal:
   stage: centos-pgsql-minimal
   script:
-    - for i in 90 91 92 93 94 95 96 10 11 12beta1; do
+    - for i in 94 95 96 10 11 12beta1; do
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v${i}" ./centos-base/pgsql-minimal/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-minimal:v${i}"
     - done
@@ -27,7 +27,7 @@ build-centos-pgsql-minimal:
 build-centos-pgsql-ssl:
   stage: centos-pgsql-ssl
   script:
-    - for i in 90 91 92 93 94 95 96 10 11 12beta1; do
+    - for i in 94 95 96 10 11 12beta1; do
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v${i}" ./centos-base/pgsql-ssl/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-ssl:v${i}"
     - done
@@ -37,7 +37,7 @@ build-centos-pgsql-ssl:
 build-centos-pgsql-contribs:
   stage: centos-pgsql-contribs
   script:
-    - for i in 90 91 92 93 94 95 96 10 11 12beta1; do
+    - for i in 94 95 96 10 11 12beta1; do
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v${i}" ./centos-base/pgsql-contribs/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/centos-pgsql-contribs:v${i}"
     - done
@@ -47,7 +47,7 @@ build-centos-pgsql-contribs:
 build-ubuntu-pgsql-minimal:
   stage: ubuntu-pgsql-minimal
   script:
-    - for i in 90 91 92 93 94 95 96 10 11 12beta1; do
+    - for i in 94 95 96 10 11 12beta1; do
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v${i}" ./ubuntu-base/pgsql-minimal/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-minimal:v${i}"
     - done
@@ -57,7 +57,7 @@ build-ubuntu-pgsql-minimal:
 build-ubuntu-pgsql-ssld:
   stage: ubuntu-pgsql-ssl
   script:
-    - for i in 90 91 92 93 94 95 96 10 11 12beta1; do
+    - for i in 94 95 96 10 11 12beta1; do
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v${i}" ./ubuntu-base/pgsql-ssl/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-ssl:v${i}"
     - done
@@ -67,7 +67,7 @@ build-ubuntu-pgsql-ssld:
 build-ubuntu-pgsql-contribs:
   stage: ubuntu-pgsql-contribs
   script:
-    - for i in 90 91 92 93 94 95 96 10 11 12beta1; do
+    - for i in 94 95 96 10 11 12beta1; do
     - docker build -t "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v${i}" ./ubuntu-base/pgsql-contribs/pgsql${i}
     - docker push "$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/ubuntu-pgsql-contribs:v${i}"
     - done
