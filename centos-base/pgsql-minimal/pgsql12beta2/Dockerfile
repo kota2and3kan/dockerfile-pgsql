@@ -2,11 +2,11 @@ FROM centos:7.6.1810 AS builder-pgsql-minimal
 RUN yum install -y make gcc readline-devel zlib-devel > /dev/null \
  && useradd postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v12beta1/postgresql-12beta1.tar.gz > /dev/null \
- && tar xzf postgresql-12beta1.tar.gz \
- && chown -R postgres. postgresql-12beta1/ \
- && su - postgres -c "cd /usr/local/src/postgresql-12beta1/ && ./configure && make" > /dev/null \
- && cd /usr/local/src/postgresql-12beta1/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v12beta2/postgresql-12beta2.tar.gz > /dev/null \
+ && tar xzf postgresql-12beta2.tar.gz \
+ && chown -R postgres. postgresql-12beta2/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-12beta2/ && ./configure && make" > /dev/null \
+ && cd /usr/local/src/postgresql-12beta2/ \
  && make install > /dev/null 
 
 FROM centos:7.6.1810

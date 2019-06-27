@@ -1,16 +1,18 @@
-FROM centos:7.6.1810 AS builder-pgsql-ssl
+FROM centos:7.6.1810 AS builder-pgsql-contribs
 RUN yum install -y make gcc readline-devel zlib-devel openssl-devel > /dev/null \
  && useradd postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v12beta1/postgresql-12beta1.tar.gz > /dev/null \
- && tar xzf postgresql-12beta1.tar.gz \
- && chown -R postgres. postgresql-12beta1/ \
- && su - postgres -c "cd /usr/local/src/postgresql-12beta1/ && ./configure --with-openssl && make" > /dev/null \
- && cd /usr/local/src/postgresql-12beta1/ \
- && make install > /dev/null  
+ && curl -O https://ftp.postgresql.org/pub/source/v12beta2/postgresql-12beta2.tar.gz > /dev/null \
+ && tar xzf postgresql-12beta2.tar.gz \
+ && chown -R postgres. postgresql-12beta2/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-12beta2/ && ./configure --with-openssl && make world" > /dev/null \
+ && cd /usr/local/src/postgresql-12beta2/ \
+ && make install-world > /dev/null \
+ && rm -rf /usr/local/pgsql/share/doc \
+ && rm -rf /usr/local/pgsql/share/man
 
 FROM centos:7.6.1810
-COPY --from=builder-pgsql-ssl /usr/local/pgsql /usr/local/pgsql
+COPY --from=builder-pgsql-contribs /usr/local/pgsql /usr/local/pgsql
 RUN yum install -y openssl glibc > /dev/null \
  && yum clean all > /dev/null \
  && rm -rf /var/cache/yum/* \
