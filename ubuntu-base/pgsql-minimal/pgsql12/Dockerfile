@@ -1,19 +1,19 @@
-FROM ubuntu:18.04 AS builder-pgsql-ssl
+FROM ubuntu:18.04 AS builder-pgsql-minimal
 RUN apt update > /dev/null \
- && apt install -y make gcc libreadline-dev zlib1g-dev curl libssl-dev > /dev/null \
+ && apt install -y make gcc libreadline-dev zlib1g-dev curl > /dev/null \
  && useradd -m -s /bin/bash postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v12beta2/postgresql-12beta2.tar.gz > /dev/null \
- && tar xzf postgresql-12beta2.tar.gz \
- && chown -R postgres. postgresql-12beta2/ \
- && su - postgres -c "cd /usr/local/src/postgresql-12beta2/ && ./configure --with-openssl && make" > /dev/null \
- && cd /usr/local/src/postgresql-12beta2/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v12beta3/postgresql-12beta3.tar.gz > /dev/null \
+ && tar xzf postgresql-12beta3.tar.gz \
+ && chown -R postgres. postgresql-12beta3/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-12beta3/ && ./configure && make" > /dev/null \
+ && cd /usr/local/src/postgresql-12beta3/ \
  && make install > /dev/null 
 
 FROM ubuntu:18.04
-COPY --from=builder-pgsql-ssl /usr/local/pgsql /usr/local/pgsql
+COPY --from=builder-pgsql-minimal /usr/local/pgsql /usr/local/pgsql
 RUN apt update > /dev/null \
- && apt install -y vim-tiny libreadline7 openssl libc6 > /dev/null \
+ && apt install -y vim-tiny libreadline7 libc6 > /dev/null \
  && apt-get -y clean > /dev/null \
  && rm -rf /var/lib/apt/lists/* \
  && mkdir -p /usr/local/pgsql/data \
@@ -29,9 +29,6 @@ RUN apt update > /dev/null \
  && echo "logging_collector = on" >> /usr/local/pgsql/data/postgresql.conf \
  && echo "log_filename = 'postgresql-%Y-%m-%d.log'" >> /usr/local/pgsql/data/postgresql.conf \
  && echo "log_error_verbosity = verbose" >> /usr/local/pgsql/data/postgresql.conf \
- && echo "ssl = on" >> /usr/local/pgsql/data/postgresql.conf \
- && su - postgres -c 'yes "" | openssl req -new -x509 -days 365 -nodes -text -out /usr/local/pgsql/data/server.crt -keyout /usr/local/pgsql/data/server.key -subj "/CN=dbhost.example.com"' \
- && chmod 600 /usr/local/pgsql/data/server.key \
  && sed -i s/"127.0.0.1\/32"/"0.0.0.0\/0"/g /usr/local/pgsql/data/pg_hba.conf \
- && sed -i s/"::1\/128"/"::\/0"/g /usr/local/pgsql/data/pg_hba.conf 
+ && sed -i s/"::1\/128"/"::\/0"/g /usr/local/pgsql/data/pg_hba.conf
 CMD ["/bin/bash"]
