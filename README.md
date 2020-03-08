@@ -2,7 +2,7 @@
 Dockerfile for local test of PostgreSQL.
 
 ## Note
-For test local or development envronment.  
+For test local or development environment.  
 Not for production.
 
 
