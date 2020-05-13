@@ -1,4 +1,5 @@
 # dockerfile-pgsql
+![Build PostgreSQL Container Image](https://github.com/kota2and3kan/dockerfile-pgsql/workflows/Build%20PostgreSQL%20Container%20Image/badge.svg)  
 Dockerfile for local test of PostgreSQL.
 
 ## Note
