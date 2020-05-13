@@ -43,6 +43,6 @@ jobs:
     - name: Build pgsql-contribs (Ubuntu base)
       run: |
         for i in 94 95 96 10 11 12; do
-        docker build -t "$ubuntu-pgsql-contribs:v${i}" ./ubuntu-base/pgsql-contribs/pgsql${i}
+        docker build -t "ubuntu-pgsql-contribs:v${i}" ./ubuntu-base/pgsql-contribs/pgsql${i}
         done
         docker image ls
