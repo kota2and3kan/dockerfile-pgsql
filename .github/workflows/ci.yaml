@@ -1,4 +1,4 @@
-name: Build PostgreSQL Container Image.
+name: Build PostgreSQL Container Image
 on:
   push:
     branches:
