@@ -16,42 +16,42 @@ jobs:
 
     - name: Build pgsql-minimal (CentOS base)
       run: |
-        for i in 94 95 96 10 11 12; do
+        for i in 95 96 10 11 12; do
         docker build -t "centos-pgsql-minimal:v${i}" ./centos-base/pgsql-minimal/pgsql${i}
         done
         docker image ls
 
     - name: Build pgsql-ssl (CentOS base)
       run: |
-        for i in 94 95 96 10 11 12; do
+        for i in 95 96 10 11 12; do
         docker build -t "centos-pgsql-ssl:v${i}" ./centos-base/pgsql-ssl/pgsql${i}
         done
         docker image ls
 
     - name: Build pgsql-contribs (CentOS base)
       run: |
-        for i in 94 95 96 10 11 12; do
+        for i in 95 96 10 11 12; do
         docker build -t "centos-pgsql-contribs:v${i}" ./centos-base/pgsql-contribs/pgsql${i}
         done
         docker image ls
 
     - name: Build pgsql-minimal (Ubuntu base)
       run: |
-        for i in 94 95 96 10 11 12; do
+        for i in 95 96 10 11 12; do
         docker build -t "ubuntu-pgsql-minimal:v${i}" ./ubuntu-base/pgsql-minimal/pgsql${i}
         done
         docker image ls
 
     - name: Build pgsql-ssl (Ubuntu base)
       run: |
-        for i in 94 95 96 10 11 12; do
+        for i in 95 96 10 11 12; do
         docker build -t "ubuntu-pgsql-ssl:v${i}" ./ubuntu-base/pgsql-ssl/pgsql${i}
         done
         docker image ls
 
     - name: Build pgsql-contribs (Ubuntu base)
       run: |
-        for i in 94 95 96 10 11 12; do
+        for i in 95 96 10 11 12; do
         docker build -t "ubuntu-pgsql-contribs:v${i}" ./ubuntu-base/pgsql-contribs/pgsql${i}
         done
         docker image ls
