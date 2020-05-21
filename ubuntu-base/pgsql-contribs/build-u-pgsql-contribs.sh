@@ -9,3 +9,4 @@ docker build -f pgsql96/Dockerfile -t u-pgsql-contribs:v96 ./pgsql96
 docker build -f pgsql10/Dockerfile -t u-pgsql-contribs:v10 ./pgsql10
 docker build -f pgsql11/Dockerfile -t u-pgsql-contribs:v11 ./pgsql11
 docker build -f pgsql12/Dockerfile -t u-pgsql-contribs:v12 ./pgsql12
+docker build -f pgsql13/Dockerfile -t u-pgsql-contribs:v13 ./pgsql13

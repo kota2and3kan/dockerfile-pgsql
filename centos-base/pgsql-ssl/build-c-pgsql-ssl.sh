@@ -9,3 +9,4 @@ docker build -f pgsql96/Dockerfile -t c-pgsql-ssl:v96 ./pgsql96
 docker build -f pgsql10/Dockerfile -t c-pgsql-ssl:v10 ./pgsql10
 docker build -f pgsql11/Dockerfile -t c-pgsql-ssl:v11 ./pgsql11
 docker build -f pgsql12/Dockerfile -t c-pgsql-ssl:v12 ./pgsql12
+docker build -f pgsql13/Dockerfile -t c-pgsql-ssl:v13 ./pgsql13
