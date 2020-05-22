@@ -38,7 +38,6 @@ jobs:
         docker image prune -f
         docker image ls
 
-jobs:
   build-ubuntu-base-image:
     runs-on: ubuntu-18.04
     steps:
