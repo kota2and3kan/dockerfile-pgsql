@@ -6,7 +6,7 @@ on:
     - master
 
 jobs:
-  build-pgsql-container-image:
+  build-centos-base-image:
     runs-on: ubuntu-18.04
     steps:
 
@@ -19,6 +19,7 @@ jobs:
         for i in 95 96 10 11 12 13; do
         docker build -t "centos-pgsql-minimal:v${i}" ./centos-base/pgsql-minimal/pgsql${i}
         done
+        docker image prune -f
         docker image ls
 
     - name: Build pgsql-ssl (CentOS base)
@@ -26,6 +27,7 @@ jobs:
         for i in 95 96 10 11 12 13; do
         docker build -t "centos-pgsql-ssl:v${i}" ./centos-base/pgsql-ssl/pgsql${i}
         done
+        docker image prune -f
         docker image ls
 
     - name: Build pgsql-contribs (CentOS base)
@@ -33,13 +35,24 @@ jobs:
         for i in 95 96 10 11 12 13; do
         docker build -t "centos-pgsql-contribs:v${i}" ./centos-base/pgsql-contribs/pgsql${i}
         done
+        docker image prune -f
         docker image ls
+
+jobs:
+  build-ubuntu-base-image:
+    runs-on: ubuntu-18.04
+    steps:
+
+    - uses: actions/checkout@v2
+      with:
+        ref: master
 
     - name: Build pgsql-minimal (Ubuntu base)
       run: |
         for i in 95 96 10 11 12 13; do
         docker build -t "ubuntu-pgsql-minimal:v${i}" ./ubuntu-base/pgsql-minimal/pgsql${i}
         done
+        docker image prune -f
         docker image ls
 
     - name: Build pgsql-ssl (Ubuntu base)
@@ -47,6 +60,7 @@ jobs:
         for i in 95 96 10 11 12 13; do
         docker build -t "ubuntu-pgsql-ssl:v${i}" ./ubuntu-base/pgsql-ssl/pgsql${i}
         done
+        docker image prune -f
         docker image ls
 
     - name: Build pgsql-contribs (Ubuntu base)
@@ -54,4 +68,5 @@ jobs:
         for i in 95 96 10 11 12 13; do
         docker build -t "ubuntu-pgsql-contribs:v${i}" ./ubuntu-base/pgsql-contribs/pgsql${i}
         done
+        docker image prune -f
         docker image ls
