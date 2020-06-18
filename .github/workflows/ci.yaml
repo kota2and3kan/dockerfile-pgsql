@@ -70,7 +70,7 @@ jobs:
         docker image prune -f
         docker image ls
 
-   build-ubuntu-base-pgsql-ssl:
+  build-ubuntu-base-pgsql-ssl:
     runs-on: ubuntu-18.04
     steps:
 
@@ -86,7 +86,7 @@ jobs:
         docker image prune -f
         docker image ls
 
-    build-ubuntu-base-pgsql-contribs:
+  build-ubuntu-base-pgsql-contribs:
     runs-on: ubuntu-18.04
     steps:
 
