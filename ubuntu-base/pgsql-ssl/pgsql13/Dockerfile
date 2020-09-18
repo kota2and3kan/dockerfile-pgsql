@@ -3,11 +3,11 @@ RUN apt update > /dev/null \
  && apt install -y make gcc libreadline-dev zlib1g-dev curl libssl-dev > /dev/null \
  && useradd -m -s /bin/bash postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v13beta3/postgresql-13beta3.tar.gz > /dev/null \
- && tar xzf postgresql-13beta3.tar.gz \
- && chown -R postgres. postgresql-13beta3/ \
- && su - postgres -c "cd /usr/local/src/postgresql-13beta3/ && ./configure --with-openssl && make" > /dev/null \
- && cd /usr/local/src/postgresql-13beta3/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v13rc1/postgresql-13rc1.tar.gz > /dev/null \
+ && tar xzf postgresql-13rc1.tar.gz \
+ && chown -R postgres. postgresql-13rc1/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-13rc1/ && ./configure --with-openssl && make" > /dev/null \
+ && cd /usr/local/src/postgresql-13rc1/ \
  && make install > /dev/null 
 
 FROM ubuntu:18.04
