@@ -2,11 +2,11 @@ FROM centos:7.6.1810 AS builder-pgsql-minimal
 RUN yum install -y make gcc readline-devel zlib-devel > /dev/null \
  && useradd postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v13rc1/postgresql-13rc1.tar.gz > /dev/null \
- && tar xzf postgresql-13rc1.tar.gz \
- && chown -R postgres. postgresql-13rc1/ \
- && su - postgres -c "cd /usr/local/src/postgresql-13rc1/ && ./configure && make" > /dev/null \
- && cd /usr/local/src/postgresql-13rc1/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v13.0/postgresql-13.0.tar.gz > /dev/null \
+ && tar xzf postgresql-13.0.tar.gz \
+ && chown -R postgres. postgresql-13.0/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-13.0/ && ./configure && make" > /dev/null \
+ && cd /usr/local/src/postgresql-13.0/ \
  && make install > /dev/null 
 
 FROM centos:7.6.1810
