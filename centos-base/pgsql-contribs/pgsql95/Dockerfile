@@ -2,11 +2,11 @@ FROM centos:7.6.1810 AS builder-pgsql-contribs
 RUN yum install -y make gcc readline-devel zlib-devel openssl-devel > /dev/null \
  && useradd postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v9.5.23/postgresql-9.5.23.tar.gz > /dev/null \
- && tar xzf postgresql-9.5.23.tar.gz \
- && chown -R postgres. postgresql-9.5.23/ \
- && su - postgres -c "cd /usr/local/src/postgresql-9.5.23/ && ./configure --with-openssl && make world" > /dev/null \
- && cd /usr/local/src/postgresql-9.5.23/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v9.5.24/postgresql-9.5.24.tar.gz > /dev/null \
+ && tar xzf postgresql-9.5.24.tar.gz \
+ && chown -R postgres. postgresql-9.5.24/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-9.5.24/ && ./configure --with-openssl && make world" > /dev/null \
+ && cd /usr/local/src/postgresql-9.5.24/ \
  && make install-world > /dev/null \
  && rm -rf /usr/local/pgsql/share/doc \
  && rm -rf /usr/local/pgsql/share/man

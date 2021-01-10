@@ -2,11 +2,11 @@ FROM centos:7.6.1810 AS builder-pgsql-minimal
 RUN yum install -y make gcc readline-devel zlib-devel > /dev/null \
  && useradd postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v11.9/postgresql-11.9.tar.gz > /dev/null \
- && tar xzf postgresql-11.9.tar.gz \
- && chown -R postgres. postgresql-11.9/ \
- && su - postgres -c "cd /usr/local/src/postgresql-11.9/ && ./configure && make" > /dev/null \
- && cd /usr/local/src/postgresql-11.9/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v11.10/postgresql-11.10.tar.gz > /dev/null \
+ && tar xzf postgresql-11.10.tar.gz \
+ && chown -R postgres. postgresql-11.10/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-11.10/ && ./configure && make" > /dev/null \
+ && cd /usr/local/src/postgresql-11.10/ \
  && make install > /dev/null 
 
 FROM centos:7.6.1810

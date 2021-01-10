@@ -3,11 +3,11 @@ RUN apt update > /dev/null \
  && apt install -y make gcc libreadline-dev zlib1g-dev curl > /dev/null \
  && useradd -m -s /bin/bash postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v10.14/postgresql-10.14.tar.gz > /dev/null \
- && tar xzf postgresql-10.14.tar.gz \
- && chown -R postgres. postgresql-10.14/ \
- && su - postgres -c "cd /usr/local/src/postgresql-10.14/ && ./configure && make" > /dev/null \
- && cd /usr/local/src/postgresql-10.14/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v10.15/postgresql-10.15.tar.gz > /dev/null \
+ && tar xzf postgresql-10.15.tar.gz \
+ && chown -R postgres. postgresql-10.15/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-10.15/ && ./configure && make" > /dev/null \
+ && cd /usr/local/src/postgresql-10.15/ \
  && make install > /dev/null 
 
 FROM ubuntu:18.04
