@@ -2,11 +2,11 @@ FROM centos:7.6.1810 AS builder-pgsql-contribs
 RUN yum install -y make gcc readline-devel zlib-devel openssl-devel > /dev/null \
  && useradd postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v10.15/postgresql-10.15.tar.gz > /dev/null \
- && tar xzf postgresql-10.15.tar.gz \
- && chown -R postgres. postgresql-10.15/ \
- && su - postgres -c "cd /usr/local/src/postgresql-10.15/ && ./configure --with-openssl && make world" > /dev/null \
- && cd /usr/local/src/postgresql-10.15/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v10.16/postgresql-10.16.tar.gz > /dev/null \
+ && tar xzf postgresql-10.16.tar.gz \
+ && chown -R postgres. postgresql-10.16/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-10.16/ && ./configure --with-openssl && make world" > /dev/null \
+ && cd /usr/local/src/postgresql-10.16/ \
  && make install-world > /dev/null \
  && rm -rf /usr/local/pgsql/share/doc \
  && rm -rf /usr/local/pgsql/share/man

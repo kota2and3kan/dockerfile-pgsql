@@ -3,11 +3,11 @@ RUN apt update > /dev/null \
  && apt install -y make gcc libreadline-dev zlib1g-dev curl libssl-dev > /dev/null \
  && useradd -m -s /bin/bash postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v12.5/postgresql-12.5.tar.gz > /dev/null \
- && tar xzf postgresql-12.5.tar.gz \
- && chown -R postgres. postgresql-12.5/ \
- && su - postgres -c "cd /usr/local/src/postgresql-12.5/ && ./configure --with-openssl && make world" > /dev/null \
- && cd /usr/local/src/postgresql-12.5/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v12.6/postgresql-12.6.tar.gz > /dev/null \
+ && tar xzf postgresql-12.6.tar.gz \
+ && chown -R postgres. postgresql-12.6/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-12.6/ && ./configure --with-openssl && make world" > /dev/null \
+ && cd /usr/local/src/postgresql-12.6/ \
  && make install-world > /dev/null \
  && rm -rf /usr/local/pgsql/share/doc \
  && rm -rf /usr/local/pgsql/share/man

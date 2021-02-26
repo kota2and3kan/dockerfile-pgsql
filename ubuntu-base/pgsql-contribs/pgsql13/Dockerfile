@@ -3,11 +3,11 @@ RUN apt update > /dev/null \
  && apt install -y make gcc libreadline-dev zlib1g-dev curl libssl-dev > /dev/null \
  && useradd -m -s /bin/bash postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v13.1/postgresql-13.1.tar.gz > /dev/null \
- && tar xzf postgresql-13.1.tar.gz \
- && chown -R postgres. postgresql-13.1/ \
- && su - postgres -c "cd /usr/local/src/postgresql-13.1/ && ./configure --with-openssl && make world" > /dev/null \
- && cd /usr/local/src/postgresql-13.1/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.gz > /dev/null \
+ && tar xzf postgresql-13.2.tar.gz \
+ && chown -R postgres. postgresql-13.2/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-13.2/ && ./configure --with-openssl && make world" > /dev/null \
+ && cd /usr/local/src/postgresql-13.2/ \
  && make install-world > /dev/null \
  && rm -rf /usr/local/pgsql/share/doc \
  && rm -rf /usr/local/pgsql/share/man
