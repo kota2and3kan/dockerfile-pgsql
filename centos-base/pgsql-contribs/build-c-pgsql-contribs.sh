@@ -10,3 +10,4 @@ docker build -f pgsql10/Dockerfile -t c-pgsql-contribs:v10 ./pgsql10
 docker build -f pgsql11/Dockerfile -t c-pgsql-contribs:v11 ./pgsql11
 docker build -f pgsql12/Dockerfile -t c-pgsql-contribs:v12 ./pgsql12
 docker build -f pgsql13/Dockerfile -t c-pgsql-contribs:v13 ./pgsql13
+docker build -f pgsql14/Dockerfile -t c-pgsql-contribs:v14 ./pgsql14
