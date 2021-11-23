@@ -3,11 +3,11 @@ RUN apt update > /dev/null \
  && apt install -y make gcc libreadline-dev zlib1g-dev curl > /dev/null \
  && useradd -m -s /bin/bash postgres \
  && cd /usr/local/src \
- && curl -O https://ftp.postgresql.org/pub/source/v12.7/postgresql-12.7.tar.gz > /dev/null \
- && tar xzf postgresql-12.7.tar.gz \
- && chown -R postgres. postgresql-12.7/ \
- && su - postgres -c "cd /usr/local/src/postgresql-12.7/ && ./configure && make" > /dev/null \
- && cd /usr/local/src/postgresql-12.7/ \
+ && curl -O https://ftp.postgresql.org/pub/source/v12.9/postgresql-12.9.tar.gz > /dev/null \
+ && tar xzf postgresql-12.9.tar.gz \
+ && chown -R postgres. postgresql-12.9/ \
+ && su - postgres -c "cd /usr/local/src/postgresql-12.9/ && ./configure && make" > /dev/null \
+ && cd /usr/local/src/postgresql-12.9/ \
  && make install > /dev/null 
 
 FROM ubuntu:18.04
